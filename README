@@ -1,0 +1,2 @@
++ 在使用之前首先需要安装python2
++ 然后安装mysql-connector、tornado、sqlalchemy等库文件
