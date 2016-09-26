@@ -27,13 +27,16 @@
 	font-size: 0.5em;
 	padding: 3px 6px;
 }
-#profession_setting {
+#profession_setting, #overtime_setting {
 	text-align: center;
 }
 
-#profession_add {
+#profession_add, #overtime_add {
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
 	font-size: 1.5em;
+}
+#overtime_setting .table_block {
+	width: 60%;
 }
