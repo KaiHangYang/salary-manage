@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎使用工资管理系统</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{static_url('css/index.css')}}">
+</head>
+<body>
+<div id="header">
+    <div id="title"><span class="glyphicon glyphicon-cog"></span>工资管理系统</div>
+    <ul class="nav nav-tabs" role="tablist" id="nav-bar">
+        <li role="presentation" class="active"><a href="#profession_setting" role="tab" data-toggle="tab">工种设定</a></li>
+        <li role="presentation"><a href="#overtime_setting" role="tab" data-toggle="tab">加班种类设置</a></li>
+        <li role="presentation"><a href="#staff_manage" role="tab" data-toggle="tab">员工管理</a></li>
+        <!-- <li role="presentation"><a href="#" role="tab" data-toggle="tab">Settings</a></li> -->
+    </ul>    
+</div>
+<div id="container">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="profession_setting">
+            <div class="table_block">
+                <span class="table_header">工种信息表</span>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <td>工种名称</td>
+                            <td>工种等级</td>
+                            <td>工种基本工资</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody id="pro_tbody">
+                       <!--  <tr>
+                            <td>呵呵</td>
+                            <td>1</td>
+                            <td>操作</td>
+                            <td>
+                                <button type="button" class="btn btn-primary table_button">更改</button>
+                                <button type="button" class="btn btn-danger table_button">删除</button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <div class="button_block">
+                    <button type="button" class="btn btn-success" id="profession_add">添加</button>
+                </div>
+            </div>
+           
+            <div class="modal fade" id="profession_dialog" tabindex="-1" role="dialog" aria-labelledby="profession_Label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="profession_Label">工种管理</h4>
+                        </div>
+                        <div class="modal-body" style="padding:20px">
+                            <form role="form" id="profession_form" style="text-align:left" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="profession_name" class="col-sm-2 control-label">工种名称</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="profession_name" placeholder="工种名称">    
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profession_level" class="col-sm-2 control-label">工种等级</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" id="profession_level">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profession_salary" class="col-sm-2 control-label">基本工资</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="profession_salary" placeholder="工种基本工资">    
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer" >
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary pro_save">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="overtime_setting">呵呵哒</div>
+        <div role="tabpanel" class="tab-pane fade" id="staff_manage">test</div>
+        <!-- <div role="tabpanel" class="tab-pane fade" id="settings">haha</div> -->
+        <div class="modal fade" id="ask_dialog" tabindex="-1" role="dialog" aria-labelledby="ask_Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="ask_Label">警告</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px">
+                        确定执行该操作么？
+                    </div>
+                    <div class="modal-footer" >
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary ask_sure">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="msg_dialog" tabindex="-1" role="dialog" aria-labelledby="msg_Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="msg_Label">消息</h4>
+                    </div>
+                    <div class="modal-body" style="padding:20px">
+                        
+                    </div>
+                    <div class="modal-footer" >
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="{{static_url('js/jquery.js')}}"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="{{static_url('js/index.js')}}"></script>
+</html>

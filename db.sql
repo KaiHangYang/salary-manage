@@ -29,7 +29,7 @@ CREATE TABLE `allowance` (
   `m_time` int(4) DEFAULT '0',
   PRIMARY KEY (`staff_id`,`m_month`,`overtime_id`),
   KEY `overtime_id` (`overtime_id`),
-  CONSTRAINT `allowance_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`id`),
+  CONSTRAINT `allowance_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `allowance_ibfk_2` FOREIGN KEY (`overtime_id`) REFERENCES `overtime_type` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -57,7 +57,7 @@ CREATE TABLE `attendance` (
   `late_time` int(4) DEFAULT '0',
   `absent_time` int(4) DEFAULT '0',
   PRIMARY KEY (`staff_id`,`m_month`),
-  CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`id`)
+  CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -131,7 +131,7 @@ CREATE TABLE `salary` (
   `m_month` int(1) NOT NULL,
   `salary` int(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`staff_id`,`m_month`),
-  CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`id`)
+  CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

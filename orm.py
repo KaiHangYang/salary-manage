@@ -56,7 +56,8 @@ class ATTENDANCE(Base):
     absent_time = Column(INT, default=0)
 
 engine = create_engine("mysql+mysqlconnector://root:123456@localhost:3306/salary")
-#DBSession = sessionmaker(bind=engine)
+
+DBSession = sessionmaker(bind=engine)
 
 """
 session = DBSession()

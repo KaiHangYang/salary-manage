@@ -1,0 +1,39 @@
+#container {
+
+}
+#title {
+	font-size: 4em;
+}
+#title>span {
+	top: 0.1em;
+}
+#nav-bar {
+	padding-left: 20px;
+}
+.table_header {
+
+	font-size: 1.2em;
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+.table_block {
+	margin-top: 3em;
+	width: 70%;
+	text-align: left;
+	display: inline-block;
+}
+.table_button {
+	font-size: 0.5em;
+	padding: 3px 6px;
+}
+#profession_setting {
+	text-align: center;
+}
+
+#profession_add {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	font-size: 1.5em;
+}
