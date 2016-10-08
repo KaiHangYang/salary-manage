@@ -11,7 +11,7 @@
 	padding-left: 20px;
 }
 .table_header {
-
+	margin-bottom: 10px;
 	font-size: 1.2em;
 	text-align: center;
 	display: block;
@@ -26,12 +26,12 @@
 .table_button {
 	font-size: 0.5em;
 	padding: 3px 6px;
-}
-#profession_setting, #overtime_setting {
+} 
+#profession_setting, #overtime_setting, #staff_manage, #allowance, #attendance, #salary, #bonus {
 	text-align: center;
 }
 
-#profession_add, #overtime_add {
+#profession_add, #overtime_add, #staff_add, #allowance_add, #attendance_add {
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
@@ -39,4 +39,11 @@
 }
 #overtime_setting .table_block {
 	width: 60%;
+}
+#a_time_form {
+	text-align: center;
+}
+#a_time_form > div {
+	width: 100%;
+	display: inline-block;
 }

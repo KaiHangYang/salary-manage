@@ -4,6 +4,7 @@ from sqlalchemy import ForeignKey
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import and_, or_, func
 
 Base = declarative_base()
 
