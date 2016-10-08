@@ -295,7 +295,14 @@ function salary_init(type, in_data, method, is_dialog) {
 	*/
 	var data;
 	if (method == 0) {
-		if (type == 3) {
+		if (type == 4) {
+			// 表示通过部门来获取
+			data = {
+				action2: "op",
+				profession_id: in_data.profession_id
+			}
+		}
+		else if (type == 3) {
 			data = {
 				action2: "onm",
 				staff_id: in_data.staff_id,
@@ -321,7 +328,7 @@ function salary_init(type, in_data, method, is_dialog) {
 		}
 		data["action"] = "get";
 	}
-	else {
+	else if (method == 1) {
 		if (type == 0) {
 			data = {
 				action2: "one",
@@ -583,6 +590,13 @@ function bonus_init(type, s_id) {
 	})
 	
 }
+// 数据下载相关的函数
+function table_download(name) {
+	if (name == "") {
+		name = "工资表";
+	}
+	export_table_to_excel("salary_table", name);
+}
 function send_msg(msg) {
 	$("#msg_dialog .modal-body").text(msg);
 	$("#msg_dialog").modal("show");
@@ -596,6 +610,7 @@ function init() {
 	allowance_init(0, null);
 	attendance_init(0 ,null);
 	salary_init(0, null, 0, 0);
+	bonus_init(0, "");
 
 	$("#nav-bar").bind("click", function(e){
 		if ($(e.target).hasClass("nav-pro")){
@@ -616,6 +631,9 @@ function init() {
 		}
 		else if ($(e.target).hasClass("nav-salary")) {
 			salary_init(0, null, 0, 0);
+		}
+		else if ($(e.target).hasClass("nav-bonus")) {
+			bonus_init(0, "");
 		}
 	});
 	$("#pro_tbody").bind("click", function(e) {
@@ -951,6 +969,19 @@ function init() {
 		else {
 			salary_init(0, null, 0, 1);
 		}
+	});
+	$("#salary_search_3").bind("click", function() {
+		var p_id = parseInt($("#salary_p_id").val());
+		if (isNaN(p_id)) {
+			send_msg("部门ID不能为空或者非数字!");
+			return;
+		}
+		salary_init(4, {profession_id: p_id}, 0, 1);
+
+	});
+	$("#salary_download").bind("click", function() {
+		var name = $("#salary_down_name").val();
+		table_download(name);
 	});
 	$("#bonus_search").bind("click", function(e) {
 		var s_id = $("#bonus_s_id").val();

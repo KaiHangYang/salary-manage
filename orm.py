@@ -18,6 +18,7 @@ class STAFF_INFO(Base):
     salary = relationship("SALARY", backref="STAFF_INFO")
     allowance = relationship("ALLOWANCE", backref="STAFF_INFO")
     attendance = relationship("ATTENDANCE", backref="STAFF_INFO")
+    bonus = relationship("BONUS", backref="STAFF_INFO")
 
 class PROFESSION_INFO(Base):
     __tablename__ = 'profession_info'
@@ -55,8 +56,13 @@ class ATTENDANCE(Base):
     leave_time = Column(INT, default=0)
     late_time = Column(INT, default=0)
     absent_time = Column(INT, default=0)
+class BONUS(Base):
+    __tablename__ = "bonus"
+    staff_id = Column(INT, ForeignKey("staff_info.id"), primary_key=True, nullable=False)
+    bonus = Column(INT, default=0)
 
-engine = create_engine("mysql+mysqlconnector://root:123456@localhost:3306/salary")
+
+engine = create_engine("mysql+mysqlconnector://root:123456@localhost:3306/m_salary")
 
 DBSession = sessionmaker(bind=engine)
 

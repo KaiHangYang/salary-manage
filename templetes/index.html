@@ -432,7 +432,7 @@
         <div role="tabpanel" class="tab-pane fade" id="salary">
             <div class="table_block">
                 <span class="table_header" style="margin-bottom: 10px">工资表</span>
-                <form role="form" id="a_time_form" style="text-align:center" class="form-horizontal">
+                <form role="form" id="a_time_form" style="text-align: center;border: 3px solid rgba(128, 128, 128, 0.19);padding-top: 20px;margin-bottom: 20px;border-radius: 4px;" class="form-horizontal">
                     <div class="time_picker form-group">
                         <label for="salary_date" class="col-sm-2 control-label">月份选择</label>
                          <div class="col-sm-2">
@@ -445,8 +445,22 @@
                         <button type="button" id="salary_search_1" class="btn btn-info col-sm-1" style="margin-right:10px">更新</button>
                         <button type="button" id="salary_search_2" class="btn btn-info col-sm-1">显示</button>
                     </div>
+                    <div class="time_picker form-group">
+                        <label for="salary_p_id" class="col-sm-2 control-label" style="margin-right: -2px">工种ID(部门ID)</label>
+                        <div class="col-sm-2">
+                            <input type="text" id="salary_p_id" placeholder="不能为空" class="form-control">
+                        </div>
+                        <button type="button" id="salary_search_3" class="btn btn-info col-sm-1">显示</button>
+                    </div>
+                    <div class="time_picker form-group row">
+                        <label for="salary_down_name" class="col-sm-2 control-label" style="margin-right: -2px">工资表下载：</label>
+                        <div class="col-sm-2">
+                            <input type="text" id="salary_down_name" placeholder="表格名称" class="form-control">
+                        </div>
+                        <button type="button" id="salary_download" class="my-c-btn btn btn-info col-md-2">下载当前表格</button>
+                    </div> 
                 </form>
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered" id="salary_table">
                     <thead>
                         <tr>
                             <td>时间(月份)</td>
@@ -463,14 +477,14 @@
 
         <div role="tabpanel" class="tab-pane fade" id="bonus">
             <div class="table_block">
-                <span class="table_header" style="margin-bottom: 10px">工资表</span>
+                <span class="table_header" style="margin-bottom: 10px">年终奖励</span>
                 <form role="form" id="a_time_form" style="text-align:center" class="form-horizontal">
                     <div class="time_picker form-group">
                         <label for="bonus_s_name" class="col-sm-5 control-label">员工ID</label>
                         <div class="col-sm-2">
-                            <input type="text" id="bonus_s_id" placeholder="为空计算全部" class="form-control">
+                            <input type="text" id="bonus_s_id" placeholder="为空获取全部" class="form-control">
                         </div>
-                        <button type="button" id="bonus_search" class="btn btn-info col-sm-1">计算</button>
+                        <button type="button" id="bonus_search" class="btn btn-info col-sm-1">查询</button>
                     </div>
                 </form>
                 <table class="table table-striped table-bordered">
@@ -531,5 +545,9 @@
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="{{static_url('js/index.js')}}"></script>
 <script src="{{static_url('js/bootstrap-datetimepicker.min.js')}}"></script>
+<script src="{{static_url('js/js-xlsx/shim.js')}}"></script>
+<script src="{{static_url('js/js-xlsx/dist/xlsx.full.min.js')}}"></script>
+<script src="{{static_url('js/js-xlsx/FileSave.js')}}"></script>
+<script src="{{static_url('js/js-xlsx/ExportToExcel.js')}}"></script>
 
 </html>

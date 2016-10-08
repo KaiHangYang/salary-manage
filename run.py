@@ -395,8 +395,10 @@ class SalaryHandler(web.RequestHandler):
         if action == "get":
             action2 = self.get_body_argument("action2")
             result = None
-                
-            if action2 == "oname":
+            if action2 == "op":
+                profession_id = self.get_body_argument("profession_id")
+                result = session.query(orm.SALARY.staff_id, orm.STAFF_INFO.name, orm.SALARY.m_month, orm.SALARY.salary, orm.STAFF_INFO.profession_id).filter(orm.STAFF_INFO.profession_id == profession_id, orm.SALARY.staff_id == orm.STAFF_INFO.id).order_by(orm.STAFF_INFO.name, orm.SALARY.staff_id, orm.SALARY.m_month).all()
+            elif action2 == "oname":
                 staff_id = self.get_body_argument("staff_id")
                 result = session.query(orm.SALARY.staff_id, orm.STAFF_INFO.name, orm.SALARY.m_month, orm.SALARY.salary, orm.STAFF_INFO.profession_id).filter(orm.SALARY.staff_id == staff_id, orm.SALARY.staff_id == orm.STAFF_INFO.id).order_by(orm.STAFF_INFO.profession_id, orm.STAFF_INFO.name, orm.SALARY.staff_id, orm.SALARY.m_month).all()
             elif action2 == "omonth":
@@ -474,11 +476,11 @@ class FinalBonus(web.RequestHandler):
         data = dict()
         if action == "one":
             s_id = self.get_body_argument("staff_id")
-            result = session.query(orm.SALARY.staff_id, orm.STAFF_INFO.name, orm.func.sum(orm.SALARY.salary)).filter(orm.and_(orm.SALARY.staff_id == s_id, orm.SALARY.staff_id == orm.STAFF_INFO.id)).group_by(orm.SALARY.staff_id).all()
+            result = session.query(orm.BONUS.staff_id, orm.STAFF_INFO.name, orm.BONUS.bonus).filter(orm.and_(orm.BONUS.staff_id == s_id, orm.BONUS.staff_id == orm.STAFF_INFO.id)).group_by(orm.BONUS.staff_id).all()
         elif action == "all":
-            result = session.query(orm.SALARY.staff_id, orm.STAFF_INFO.name, orm.func.sum(orm.SALARY.salary)).filter(orm.SALARY.staff_id == orm.STAFF_INFO.id).group_by(orm.SALARY.staff_id).all()
+            result = session.query(orm.BONUS.staff_id, orm.STAFF_INFO.name, orm.BONUS.bonus).filter(orm.BONUS.staff_id == orm.STAFF_INFO.id).group_by(orm.BONUS.staff_id).all()
         for i in result:
-            data[str(i[0])] = dict(staff_id=i[0], name=i[1], bonus=int(i[2]/12))
+            data[str(i[0])] = dict(staff_id=i[0], name=i[1], bonus=i[2])
         self.write(data)
 
 
