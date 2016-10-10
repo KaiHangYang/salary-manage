@@ -4,21 +4,61 @@
     <meta charset="UTF-8">
     <title>欢迎使用工资管理系统</title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{static_url('css/index.css')}}">
     <link rel="stylesheet" href="{{static_url('css/bootstrap-datetimepicker.min.css')}}">
+    <link rel="stylesheet" href="{{static_url('css/index.css')}}">
 </head>
 <body>
-<div id="header">
-    <div id="title"><span class="glyphicon glyphicon-cog"></span>工资管理系统</div>
-    <ul class="nav nav-tabs" role="tablist" id="nav-bar">
-        <li role="presentation" class="active nav-pro"><a href="#profession_setting" class="nav-pro" role="tab" data-toggle="tab">工种设定</a></li>
-        <li role="presentation" class="nav-over"><a href="#overtime_setting" class="nav-over" role="tab" data-toggle="tab">加班种类设定</a></li>
-        <li role="presentation" class="nav-staff"><a href="#staff_manage" role="tab" class="nav-staff" data-toggle="tab">员工管理</a></li>
-        <li role="presentation" class="nav-allowance"><a href="#allowance" role="tab" data-toggle="tab" class="nav-allowance">津贴管理</a></li>
-        <li role="presentation" class="nav-attendance"><a href="#attendance" role="tab" data-toggle="tab" class="nav-attendance">出勤管理</a></li>
-        <li role="presentation" class="nav-attendance"><a href="#salary" role="tab" data-toggle="tab" class="nav-salary">工资表</a></li>
-        <li role="presentation" class="nav-attendance"><a href="#bonus" role="tab" data-toggle="tab" class="nav-bonus">年终奖</a></li>
-    </ul>    
+    
+<div id="header" style="display: fixed">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">工资管理系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-bar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a id="drop1" href="#" class="dropdown-toggle nav-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        基本设定
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu nav-ul" role="menu" aria-labelledby="drop1">
+                        <li role="presentation" class="nav-pro"><a role="menuitem" class="nav-pro" tabindex="-1" href="#profession_setting" data-toggle="tab">工种设定</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" class="nav-over"><a role="menuitem" class="nav-over" tabindex="-1" href="#overtime_setting" data-toggle="tab">加班设定</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a id="drop2" href="#" class="dropdown-toggle nav-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    员工管理
+                    <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu nav-ul" role="menu" aria-labelledby="drop2">
+                        <li role="presentation" class="nav-staff"><a role="menuitem" class="nav-staff" tabindex="-1" href="#staff_manage" data-toggle="tab">员工管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a id="drop3" href="#" class="dropdown-toggle nav-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    工作记录
+                    <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu nav-ul" role="menu" aria-labelledby="drop3">
+                        <li role="presentation" class="nav-allowance"><a role="menuitem" class="nav-allowance" tabindex="-1" href="#allowance" data-toggle="tab">津贴管理</a></li>
+                        <li role="presentation" class="nav-attendance"><a role="menuitem" class="nav-attendance" tabindex="-1" href="#attendance" data-toggle="tab">出勤管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a id="drop4" href="#" class="dropdown-toggle nav-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    薪酬信息
+                    <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu nav-ul" role="menu" aria-labelledby="drop2" >
+                        <li role="presentation" class="nav-salary"><a role="menuitem" class="nav-salary" tabindex="-1" href="#salary" data-toggle="tab">月工资信息</a></li>
+                        <li role="presentation" class="nav-bonus"><a role="menuitem" class="nav-bonus" tabindex="-1" href="#bonus" data-toggle="tab">年终奖信息</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <div id="container">
     <div class="tab-content">

@@ -1,8 +1,31 @@
-#container {
+.nav-a {
+	-webkit-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+}
+.nav-a:hover, .nav-a:focus {
 
+	background-color: rgba(255, 255, 255, 0.35) !important;
+}
+.nav-ul a {
+	color: black !important;
+}
+#header {
+	left: 0;
+	top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+	background-color: black;
+}
+#header a {
+	color: white;
 }
 #title {
 	font-size: 4em;
+}
+#container {
+	margin-top: 50px;
 }
 #title>span {
 	top: 0.1em;

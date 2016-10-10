@@ -614,25 +614,32 @@ function init() {
 
 	$("#nav-bar").bind("click", function(e){
 		if ($(e.target).hasClass("nav-pro")){
+			console.log("pro_init");
 			profession_init();
 		}
 		else if ($(e.target).hasClass("nav-over")) {
+			console.log("over_init");
 			overtime_init();
 		}
 		else if ($(e.target).hasClass("nav-staff")) {
+			console.log("staff_init");
 			staff_init();
 		}
 		else if ($(e.target).hasClass("nav-allowance")) {
+			console.log("allowance_init");
 			allowance_dialog_init();
 			allowance_init(0, null);
 		}
 		else if ($(e.target).hasClass("nav-attendance")) {
+			console.log("attendane_init");
 			attendance_init(0 ,null);
 		}
 		else if ($(e.target).hasClass("nav-salary")) {
+			console.log("salary_init");
 			salary_init(0, null, 0, 0);
 		}
 		else if ($(e.target).hasClass("nav-bonus")) {
+			console.log("bonus_init");
 			bonus_init(0, "");
 		}
 	});
